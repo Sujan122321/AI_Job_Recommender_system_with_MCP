@@ -62,4 +62,8 @@ This project leverages artificial intelligence to recommend jobs to users based 
 - `src/`: Source code including helpers and job API integration
 
 ### License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.\
+
+### Used Resources
+-  Gemini LLM 
+- Apify for the job scraping from the linkedin and nakuri
