@@ -31,12 +31,29 @@ This project leverages artificial intelligence to recommend jobs to users based 
 	.\venv\Scripts\Activate.ps1
 	```
 3. Install dependencies:
+	You can use either pip or uv:
+
+	**Using pip:**
 	```powershell
 	pip install -r requirements.txt
 	```
+
+	**Using uv:**
+	```powershell
+	uv pip install -r requirements.txt
+	```
+
 4. Run the application:
+	You can use either python or uv:
+
+	**Using python:**
 	```powershell
 	python app.py
+	```
+
+	**Using uv:**
+	```powershell
+	uv run app.py
 	```
 
 ### Project Structure

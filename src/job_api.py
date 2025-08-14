@@ -36,7 +36,7 @@ def fetch_linkedin_jobs(search_query,location="India", rows=60):
 
 
 # Function to fetch jobs from Naukri using the Apify client
-def fetch_naukri_jobs(search_query, location="India", rows=60):
+def fetch_naukri_jobs(search_query, location="Nepal", rows=60):
     """
     Function to fetch jobs from Naukri using the Apify client.
 

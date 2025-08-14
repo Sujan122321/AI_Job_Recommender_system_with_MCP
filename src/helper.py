@@ -1,62 +1,42 @@
 import fitz  # PyMuPDF
 import os
 from dotenv import load_dotenv
-from openai import OpenAI
+import google.generativeai as genai 
 
+load_dotenv()  # Load environment variables from .env file
 
+# Configure Gemini
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)  # Correct configuration for Gemini
 
+# Initialize model (Gemini 1.5 Flash is the current name as of July 2024)
+model = genai.GenerativeModel('gemini-1.5-flash')
 
-load_dotenv()  # Load environment variables from .env file for api keys
-
-
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")      # Get OpenAI API key from environment variables
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY      # Set the OpenAI API key in the environment
-
-client = OpenAI(api_key=OPENAI_API_KEY)  # Initialize OpenAI client with the API key
-
-
-
-# Extract the content from the pdf
 def extract_text_from_pdf(uploaded_file):
     """
     Extracts text from a PDF file.
-
+    
     Args:
-        pdf_path (str): The path to the PDF file.
-
+        uploaded_file: File object or bytes of the PDF
+        
     Returns:
-        str: The extracted text from the PDF.
+        str: The extracted text from the PDF
     """
     doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
     text = ""
     for page in doc:
-        text = page.get_text()
+        text += page.get_text()  # Fixed: Accumulate text from all pages
     return text
 
-# Large language function to interact with OpenAPI service
-def ask_openai(prompt,max_tokens=500):
+def ask_gemini(prompt):
     """
-    Function to interact with the OpenAPI service.
-
+    Function to interact with Gemini AI
+    
     Args:
-        prompt (str): The prompt to send to the OpenAPI service.
-        max_tokens (int): The maximum number of tokens to return.
-
+        prompt (str): The prompt to send to Gemini
+        
     Returns:
-        str: The response from the OpenAPI service.
+        str: The response from Gemini
     """
-    
-    response =client.chat.completions.create(
-        model ="gpt-4o",
-        messages=[
-            {"role": "user",
-             "content": prompt
-             }
-        ],
-        temperature=0.5,
-        max_tokens=max_tokens    
-    )
-    
-    return response.choices[0].message.content  # Return the content of the response  
-
-
+    response = model.generate_content(prompt)
+    return response.text  # Get the text from Gemini's response
