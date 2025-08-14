@@ -17,9 +17,18 @@ This project leverages artificial intelligence to recommend jobs to users based 
 	git clone https://github.com/Sujan122321/AI_Job_Recommender_system_with_MCP.git
 	```
 2. Create and activate a virtual environment (recommended):
+	You can use either Python's built-in venv or [uv](https://github.com/astral-sh/uv) for faster environment creation.
+
+	**Using Python venv:**
 	```powershell
 	python -m venv venv
-	.\venv\Scripts\Activate
+	.\venv\Scripts\Activate.ps1
+	```
+
+	**Using uv:**
+	```powershell
+	uv venv venv
+	.\venv\Scripts\Activate.ps1
 	```
 3. Install dependencies:
 	```powershell
