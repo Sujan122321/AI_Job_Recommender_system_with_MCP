@@ -58,7 +58,6 @@ This project leverages artificial intelligence to recommend jobs to users based 
 
 ### Project Structure
 - `app.py`: Main application entry point
-- `mcp_server.py`: MCP server implementation
 - `src/`: Source code including helpers and job API integration
 
 ### License
