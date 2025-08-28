@@ -14,7 +14,7 @@ This project leverages artificial intelligence to recommend jobs to users based 
 ### Getting Started
 1. Clone the repository:
 	```powershell
-	git clone https://github.com/Sujan122321/AI_Job_Recommender_system_with_MCP.git
+	git clone https://github.com/Sujan122321/AI_Job_Recommender_system_with_MCP
 	```
 2. Create and activate a virtual environment (recommended):
 	You can use either Python's built-in venv or [uv](https://github.com/astral-sh/uv) for faster environment creation.
